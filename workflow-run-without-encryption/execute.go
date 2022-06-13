@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/temporalio/screencast-remote-codec-server-go/simpleworkflow"
+	"github.com/temporalio/screencast-encryption-with-go/simpleworkflow"
 
 	"go.temporal.io/sdk/client"
 	"go.temporal.io/sdk/worker"

@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/temporalio/screencast-remote-codec-server-go/codec"
-	"github.com/temporalio/screencast-remote-codec-server-go/simpleworkflow"
+	"github.com/temporalio/screencast-encryption-with-go/codec"
+	"github.com/temporalio/screencast-encryption-with-go/simpleworkflow"
 	"go.temporal.io/sdk/client"
 	"go.temporal.io/sdk/converter"
 	"go.temporal.io/sdk/worker"

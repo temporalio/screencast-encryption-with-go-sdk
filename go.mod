@@ -1,4 +1,4 @@
-module github.com/temporalio/screencast-remote-codec-server-go
+module github.com/temporalio/screencast-encryption-with-go
 
 go 1.18
 
