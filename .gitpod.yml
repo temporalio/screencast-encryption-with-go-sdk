@@ -1,0 +1,25 @@
+tasks:
+  - name: Temporalite
+    init: go install github.com/DataDog/temporalite/cmd/temporalite@latest
+    command: temporalite start --namespace default --ephemeral
+  - name: Remote Codec Server
+    env:
+      ENCRYPTION_KEY_ID: test-key
+    command: |
+      echo Starting Remote Codec Server on Endpoint: $(gp url 8234)
+      set +x
+      go run ./codecserver -origin $(gp url 8233)
+  - name: Shell
+    env:
+      ENCRYPTION_KEY_ID: test-key
+    init: go install github.com/temporalio/tctl/cmd/tctl@v1.16.1
+
+ports:
+  - port: 7233 # temporal server
+    onOpen: ignore
+  - port: 8233 # temporal web
+    onOpen: open-browser
+  - port: 8234 # remote codec server
+    onOpen: ignore
+    visibility: public
+    
