@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/temporalio/screencast-encryption-with-go/codec"
-	"github.com/temporalio/screencast-encryption-with-go/simpleworkflow"
+	"github.com/temporalio/screencast-encryption-with-go-sdk/codec"
+	"github.com/temporalio/screencast-encryption-with-go-sdk/simpleworkflow"
 	"go.temporal.io/sdk/client"
 	"go.temporal.io/sdk/converter"
 	"go.temporal.io/sdk/worker"

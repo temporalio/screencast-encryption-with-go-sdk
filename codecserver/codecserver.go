@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/temporalio/screencast-encryption-with-go/codec"
+	"github.com/temporalio/screencast-encryption-with-go-sdk/codec"
 	"go.temporal.io/sdk/converter"
 )
 

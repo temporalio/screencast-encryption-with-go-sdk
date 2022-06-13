@@ -1,9 +1,8 @@
-module github.com/temporalio/screencast-encryption-with-go
+module github.com/temporalio/screencast-encryption-with-go-sdk
 
 go 1.18
 
 require (
-	github.com/golang/snappy v0.0.4
 	go.temporal.io/api v1.8.0
 	go.temporal.io/sdk v1.15.0
 )
