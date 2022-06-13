@@ -6,8 +6,10 @@ tasks:
     env:
       ENCRYPTION_KEY_ID: test-key
     command: |
-      echo Starting Remote Codec Server on Endpoint: $(gp url 8234)
-      set +x
+      echo Starting Remote Codec Server
+      echo Endpoint: $(gp url 8234)
+      echo Origin: $(gp url 8233)
+      echo
       go run ./codecserver -origin $(gp url 8233)
   - name: Shell
     env:
