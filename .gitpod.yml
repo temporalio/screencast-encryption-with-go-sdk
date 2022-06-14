@@ -14,7 +14,9 @@ tasks:
   - name: Shell
     env:
       ENCRYPTION_KEY_ID: test-key
-    init: go install github.com/temporalio/tctl/cmd/tctl@v1.16.1
+    init: |
+      go install github.com/temporalio/tctl/cmd/tctl@v1.16.1
+      go mod download
 
 ports:
   - port: 7233 # temporal server
