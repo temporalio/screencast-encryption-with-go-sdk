@@ -1,6 +1,6 @@
 tasks:
   - name: Temporalite
-    init: go install github.com/DataDog/temporalite/cmd/temporalite@latest
+    init: go install github.com/robholland/temporalite/cmd/temporalite@0e3dbdd81573719b55d487f1df06bc40ba522de6
     command: temporalite start --namespace default --ephemeral
   - name: Remote Codec Server
     env:
