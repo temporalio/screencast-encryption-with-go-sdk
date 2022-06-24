@@ -7,14 +7,14 @@ import (
 	"go.temporal.io/sdk/workflow"
 )
 
-func SimpleWorkflow(ctx workflow.Context, name string) (string, error) {
+func SignupWorkflow(ctx workflow.Context, email string, name string) (string, error) {
 	ao := workflow.ActivityOptions{
 		StartToCloseTimeout: 10 * time.Second,
 	}
 	ctx = workflow.WithActivityOptions(ctx, ao)
 
 	var result string
-	err := workflow.ExecuteActivity(ctx, SimpleActivity, name).Get(ctx, &result)
+	err := workflow.ExecuteActivity(ctx, SendWelcomeEmail, email, name).Get(ctx, &result)
 	if err != nil {
 		return "", err
 	}
@@ -22,6 +22,6 @@ func SimpleWorkflow(ctx workflow.Context, name string) (string, error) {
 	return result, nil
 }
 
-func SimpleActivity(ctx context.Context, name string) (string, error) {
+func SendWelcomeEmail(ctx context.Context, email string, name string) (string, error) {
 	return "Hello " + name + "!", nil
 }

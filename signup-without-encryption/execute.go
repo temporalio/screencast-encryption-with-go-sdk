@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/temporalio/screencast-encryption-with-go-sdk/simpleworkflow"
+	signup "github.com/temporalio/screencast-encryption-with-go-sdk/signup"
 
 	"go.temporal.io/sdk/client"
 	"go.temporal.io/sdk/worker"
@@ -19,8 +19,8 @@ func runWorker() {
 
 	w := worker.New(c, "default", worker.Options{})
 
-	w.RegisterWorkflow(simpleworkflow.SimpleWorkflow)
-	w.RegisterActivity(simpleworkflow.SimpleActivity)
+	w.RegisterWorkflow(signup.SignupWorkflow)
+	w.RegisterActivity(signup.SendWelcomeEmail)
 
 	w.Run(nil)
 }
@@ -41,8 +41,9 @@ func main() {
 		client.StartWorkflowOptions{
 			TaskQueue: "default",
 		},
-		simpleworkflow.SimpleWorkflow,
+		signup.SignupWorkflow,
 		"John Smith",
+		"john@example.com",
 	)
 	if err != nil {
 		log.Fatalln("Unable to execute workflow", err)
