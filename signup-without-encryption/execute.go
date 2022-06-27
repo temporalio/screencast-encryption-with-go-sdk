@@ -51,8 +51,7 @@ func main() {
 		log.Fatalln("Unable to execute workflow", err)
 	}
 
-	var result string
-	err = wf.Get(context.Background(), &result)
+	err = wf.Get(context.Background(), nil)
 	if err != nil {
 		log.Fatalln("Workflow failed", err)
 	}
