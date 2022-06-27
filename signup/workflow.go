@@ -13,7 +13,7 @@ type SignupInput struct {
 	Name  string
 }
 
-func SignupWorkflow(ctx workflow.Context, input SendWelcomeEmailInput) error {
+func SignupWorkflow(ctx workflow.Context, input SignupInput) error {
 	ao := workflow.ActivityOptions{
 		StartToCloseTimeout: 10 * time.Second,
 	}
