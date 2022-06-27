@@ -42,8 +42,10 @@ func main() {
 			TaskQueue: "default",
 		},
 		signup.SignupWorkflow,
-		"John Smith",
-		"john@example.com",
+		signup.SendWelcomeEmailInput{
+			Name:  "John Smith",
+			Email: "john@example.com",
+		},
 	)
 	if err != nil {
 		log.Fatalln("Unable to execute workflow", err)
