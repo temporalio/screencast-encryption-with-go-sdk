@@ -59,7 +59,7 @@ func main() {
 			TaskQueue: "default",
 		},
 		signup.SignupWorkflow,
-		signup.SendWelcomeEmailInput{
+		signup.SignupInput{
 			Name:  "John Smith",
 			Email: "john@example.com",
 		},
@@ -74,5 +74,5 @@ func main() {
 		log.Fatalln("Workflow failed", err)
 	}
 
-	log.Printf("Workflow completed. Result: %v\n", result)
+	log.Printf("Workflow completed\n")
 }
