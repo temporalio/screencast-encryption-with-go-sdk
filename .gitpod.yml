@@ -1,7 +1,7 @@
 tasks:
   - name: Temporalite
     init: |
-      git clone -b rh-ui-bump github.com/robholland/temporalite
+      git clone -b rh-ui-bump https://github.com/robholland/temporalite
       cd temporalite
       go install ./cmd/temporalite
     command: temporalite start --namespace default --ephemeral
