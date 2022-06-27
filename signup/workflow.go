@@ -19,8 +19,7 @@ func SignupWorkflow(ctx workflow.Context, input SignupInput) error {
 	}
 	ctx = workflow.WithActivityOptions(ctx, ao)
 
-	var result string
-	err := workflow.ExecuteActivity(ctx, SendWelcomeEmail, SendWelcomeEmailInput{Name: input.Name, Email: input.Email}).Get(ctx, &result)
+	err := workflow.ExecuteActivity(ctx, SendWelcomeEmail, SendWelcomeEmailInput{Name: input.Name, Email: input.Email}).Get(ctx, nil)
 	if err != nil {
 		return err
 	}
