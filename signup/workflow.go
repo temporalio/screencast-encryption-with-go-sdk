@@ -13,14 +13,14 @@ type SignupInput struct {
 	Name  string
 }
 
-func SignupWorkflow(ctx workflow.Context, email string, name string) error {
+func SignupWorkflow(ctx workflow.Context, input SendWelcomeEmailInput) error {
 	ao := workflow.ActivityOptions{
 		StartToCloseTimeout: 10 * time.Second,
 	}
 	ctx = workflow.WithActivityOptions(ctx, ao)
 
 	var result string
-	err := workflow.ExecuteActivity(ctx, SendWelcomeEmail, SendWelcomeEmailInput{Name: name, Email: email}).Get(ctx, &result)
+	err := workflow.ExecuteActivity(ctx, SendWelcomeEmail, SendWelcomeEmailInput{Name: input.Name, Email: input.Email}).Get(ctx, &result)
 	if err != nil {
 		return err
 	}
